@@ -59,8 +59,6 @@ class PersonalParser {
 			$temp = array();
 			preg_match_all("/([A-Z0-9]+) Confirmed\.[\s\n]*You have received Ksh([0-9\.\,]+[0-9]) from[\s\n]+([0-9A-Z '\.]+) ([0-9]+)[\s\n]*on (\d\d?\/\d\d?\/\d\d) at (\d\d?:\d\d [AP]M)[\s\n]*New M-PESA balance is Ksh([0-9\.\,]+[0-9])/mi", $input, $temp);
 
-			var_dump($temp);
-
 			if (isset($temp[1][0])) {
 				$result["TYPE"] = Transaction::MPESA_PRIVATE_PAYMENT_RECEIVED;
 				$result["RECEIPT"] = $temp[1][0];
